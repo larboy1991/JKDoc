@@ -14,7 +14,8 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description>
-        java 和 kotlin 注释插件，支持自定义模版，使用简单，只需要在类、方法上输入 "/**"即可。
+        Plugin for IntelliJ IDEA / Android Studio , can generate document comments for Java/Kotlin file.
+        Just press Enter key after `/**`, just like in Java File !!!
     </description>
 
     <!-- Product and plugin compatibility requirements.
