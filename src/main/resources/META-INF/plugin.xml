@@ -1,0 +1,48 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.zhz.idea.plugin.JKDoc</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>JKDoc</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="312246198@qq.com">ZhuangHongZhan</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>
+        java 和 kotlin 注释插件，支持自定义模版，使用简单，只需要在类、方法上输入 "/**"即可。
+    </description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <!--    <depends>com.intellij.modules.lang</depends>-->
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+
+        <lang.documentationProvider language="kotlin"
+                                    implementationClass="com.zhz.idea.plugin.jkdoc.provider.KotlinDocProvider"
+                                    order="first"/>
+
+        <lang.documentationProvider language="JAVA"
+                                    implementationClass="com.zhz.idea.plugin.jkdoc.provider.JavaDocProvider"
+                                    order="first"/>
+
+        <applicationConfigurable groupId="tools"
+                                 id="com.zhz.idea.plugin.jkdoc.applicationConfigurable"
+                                 instance="com.zhz.idea.plugin.jkdoc.setting.JKDocConfigureFormImpl"/>
+
+        <applicationService
+                serviceInterface="com.zhz.idea.plugin.jkdoc.setting.JKDocSetting"
+                serviceImplementation="com.zhz.idea.plugin.jkdoc.setting.JKDocSettingImpl"/>
+    </extensions>
+</idea-plugin>
