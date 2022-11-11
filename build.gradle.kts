@@ -7,9 +7,6 @@ buildscript {
         maven(url = "https://maven.aliyun.com/repository/gradle-plugin")
         maven(url = "https://maven.aliyun.com/repository/google")
     }
-//    dependencies {
-//        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
-//    }
 }
 
 plugins {
@@ -18,7 +15,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.9.0"
 }
 
-group = "com.zhz.idea.plugin"
+group = "com.larboy1991.idea.plugin"
 version = "0.0.1"
 
 repositories {
@@ -33,10 +30,6 @@ intellij {
     plugins.set(listOf("java", "Kotlin"))
 }
 
-
-//dependencies{
-//    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
-//}
 
 
 tasks {
