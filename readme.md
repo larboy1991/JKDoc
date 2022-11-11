@@ -16,4 +16,6 @@ Plugin for **IntelliJ IDEA** / **Android Studio** , can generate document commen
 - Support for dart
 
 
+# Thanks
+- [zxj5470/BugKotlinDocument](https://github.com/zxj5470/BugKotlinDocument)
 

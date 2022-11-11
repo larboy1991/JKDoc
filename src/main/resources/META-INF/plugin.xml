@@ -8,7 +8,7 @@
     <name>JKDoc</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="312246198@qq.com">ZhuangHongZhan</vendor>
+    <vendor email="312246198@qq.com" url="https://github.com/larboy1991/JKDoc">ZhuangHongZhan</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
