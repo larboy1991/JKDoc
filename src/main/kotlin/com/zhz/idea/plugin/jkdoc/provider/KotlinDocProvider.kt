@@ -14,7 +14,14 @@ import org.jetbrains.kotlin.kdoc.psi.impl.KDocImpl
 import org.jetbrains.kotlin.psi.*
 
 /**
- * kotlin 注释生成器
+ * kotlin 注释生成provider
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
  */
 class KotlinDocProvider : DocumentationProviderEx(), CodeDocumentationProvider {
 

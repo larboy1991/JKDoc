@@ -5,8 +5,16 @@ import com.intellij.psi.*
 import com.intellij.psi.javadoc.PsiDocComment
 import com.zhz.idea.plugin.jkdoc.generate.JavaDocGenerateUtils
 
+
 /**
- * java 类注释生成器
+ * java 类注释生成provider
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
  */
 class JavaDocProvider : JavaDocumentationProvider() {
 

@@ -14,12 +14,27 @@ import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtNamedFunction
 import org.jetbrains.kotlin.psi.KtParameter
 
-
+/**
+ * kotlin 类注释生成工具类
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
+ */
 object KotlinDocGenerateUtils {
 
 
     /**
      * 生成kotlin类注释
+     * <p>
+     * Date: 2022-11-11 17:24
+     * @param contextComment PsiComment
+     * @param owner KtClassOrObject
+     * @return String
+     * Author: zhuanghongzhan
      */
     fun generateClass(contextComment: PsiComment, owner: KtClassOrObject): String {
         return buildString {
@@ -40,7 +55,13 @@ object KotlinDocGenerateUtils {
 
 
     /**
-     * 生成命名方法的方法注释
+     * kotlin 生成方法注释
+     * <p>
+     * Date: 2022-11-11 17:25
+     * @param contextComment PsiComment
+     * @param owner KtNamedFunction
+     * @return String
+     * Author: zhuanghongzhan
      */
     fun generateFunction(contextComment: PsiComment, owner: KtNamedFunction): String {
         return buildString {
@@ -75,6 +96,12 @@ object KotlinDocGenerateUtils {
 
     /**
      * 插入参数
+     * <p>
+     * Date: 2022-11-11 17:25
+     * @param sb StringBuilder
+     * @param contextComment PsiComment
+     * @param params List<KtParameter>
+     * Author: zhuanghongzhan
      */
     private fun generateParams(sb: StringBuilder, contextComment: PsiComment, params: List<KtParameter>) {
         params.forEach { ktParameter ->

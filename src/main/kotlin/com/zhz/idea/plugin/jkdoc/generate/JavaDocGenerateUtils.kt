@@ -14,12 +14,24 @@ import com.zhz.idea.plugin.jkdoc.utils.DocFormatUtils
 import com.zhz.idea.plugin.jkdoc.utils.globalSettings
 
 /**
- * java 文档生成器
+ * java 注释生成工具类
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
  */
 object JavaDocGenerateUtils {
 
     /**
      * 生成java 类注释
+     * <p>
+     * Date: 2022-11-11 17:26
+     * @param contextComment PsiComment
+     * @return String
+     * Author: zhuanghongzhan
      */
     fun generateClass(contextComment: PsiComment): String {
         return buildString {
@@ -40,7 +52,13 @@ object JavaDocGenerateUtils {
 
 
     /**
-     * 生成java 方法注释
+     * 生成java方法注释
+     * <p>
+     * Date: 2022-11-11 17:26
+     * @param contextComment PsiComment
+     * @param owner PsiMethod
+     * @return String
+     * Author: zhuanghongzhan
      */
     fun generateMethod(contextComment: PsiComment, owner: PsiMethod): String {
         return buildString {

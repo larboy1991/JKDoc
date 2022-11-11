@@ -10,7 +10,14 @@ import javax.swing.JComponent
 import javax.swing.JTextArea
 
 /**
- * 配置基类
+ * JKDoc 设置布局控制类
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
  */
 class JKDocConfigureFormImpl : Configurable {
 

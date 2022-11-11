@@ -7,9 +7,14 @@ import com.intellij.psi.PsiComment
 
 class CommonExt
 
-
 /**
- * 添加注释行
+ * 添加行注释
+ * <p>
+ * Date: 2022-11-11 17:24
+ * @param contextComment PsiComment
+ * @param str String
+ * @return StringBuilder
+ * Author: zhuanghongzhan
  */
 fun StringBuilder.appendDecorate(contextComment: PsiComment, str: String): StringBuilder = append(
     CodeDocumentationUtil.createDocCommentLine(

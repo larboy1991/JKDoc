@@ -1,6 +1,15 @@
 package com.zhz.idea.plugin.jkdoc.constants
 
-
+/**
+ * 常量类
+ * <p>
+ * Date: 2022-11-11
+ * Updater:
+ * Update Time:
+ * Update Comments:
+ *
+ * Author: zhuanghongzhan
+ */
 object DocDecorationConstants {
     const val PARAM = "@param"
     const val RETURN = "@return"
