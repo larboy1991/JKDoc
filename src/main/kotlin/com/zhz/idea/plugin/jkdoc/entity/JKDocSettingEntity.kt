@@ -8,12 +8,13 @@ package com.zhz.idea.plugin.jkdoc.entity
  * Updater:
  * Update Time:
  * Update Comments:
- * @param classDocTemplate String 类注释模版
- * @param methodDocTemplate String 方法注释模版
  *
  * Author: zhuanghongzhan
  */
 data class JKDocSettingEntity(
-    var classDocTemplate: String = "", //类注释模版
-    var methodDocTemplate: String = "" //方法注释模版
+        var kotlinClassDocTemplate: String = "", //类注释模版
+        var kotlinMethodDocTemplate: String = "", //方法注释模版
+        var javaClassDocTemplate: String = "", // Java 类注释模版
+        var javaMethodDocTemplate: String = "", // Java 方法注释模版
+
 )

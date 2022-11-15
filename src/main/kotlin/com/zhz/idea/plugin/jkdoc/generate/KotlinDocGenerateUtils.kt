@@ -38,8 +38,8 @@ object KotlinDocGenerateUtils {
      */
     fun generateClass(contextComment: PsiComment, owner: KtClassOrObject): String {
         return buildString {
-            globalSettings.classDocTemplate
-                .ifBlank { DocDecorationConstants.DEFAULT_CLASS_DOC_TEMPLATE }
+            globalSettings.kotlinClassDocTemplate
+                .ifBlank { DocDecorationConstants.DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE }
                 .split("\n")
                 .forEach {
                     val content = DocFormatUtils.formatPlaceholder(it)
@@ -65,8 +65,8 @@ object KotlinDocGenerateUtils {
      */
     fun generateFunction(contextComment: PsiComment, owner: KtNamedFunction): String {
         return buildString {
-            globalSettings.methodDocTemplate
-                .ifBlank { DocDecorationConstants.DEFAULT_METHOD_DOC_TEMPLATE }
+            globalSettings.kotlinMethodDocTemplate
+                .ifBlank { DocDecorationConstants.DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE }
                 .split("\n")
                 .forEach {
                     val content = DocFormatUtils.formatPlaceholder(it)

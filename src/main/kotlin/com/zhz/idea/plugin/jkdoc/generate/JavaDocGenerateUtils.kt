@@ -35,18 +35,18 @@ object JavaDocGenerateUtils {
      */
     fun generateClass(contextComment: PsiComment): String {
         return buildString {
-            globalSettings.classDocTemplate
-                .ifBlank { DocDecorationConstants.DEFAULT_CLASS_DOC_TEMPLATE }
-                .split("\n")
-                .forEach {
-                    val content = DocFormatUtils.formatPlaceholder(it)
-                    if (content.contains(PLACEHOLDER_PARAMS)) {
-                        // java 类注释出现参数时不需要使用，这个只有用在kotlin里面使用
-                    } else {
-                        appendDecorate(contextComment, content.trimStart())
-                        append(LF)
+            globalSettings.javaClassDocTemplate
+                    .ifBlank { DocDecorationConstants.DEFAULT_JAVA_CLASS_DOC_TEMPLATE }
+                    .split("\n")
+                    .forEach {
+                        val content = DocFormatUtils.formatPlaceholder(it)
+                        if (content.contains(PLACEHOLDER_PARAMS)) {
+                            // java 类注释出现参数时不需要使用，这个只有用在kotlin里面使用
+                        } else {
+                            appendDecorate(contextComment, content.trimStart())
+                            append(LF)
+                        }
                     }
-                }
         }
     }
 
@@ -62,32 +62,32 @@ object JavaDocGenerateUtils {
      */
     fun generateMethod(contextComment: PsiComment, owner: PsiMethod): String {
         return buildString {
-            globalSettings.methodDocTemplate
-                .ifBlank { DocDecorationConstants.DEFAULT_METHOD_DOC_TEMPLATE }
-                .split("\n")
-                .forEach {
-                    val content = DocFormatUtils.formatPlaceholder(it)
-                    if (content.contains(PLACEHOLDER_PARAMS)) {
-                        owner.parameterList.parameters.forEach { psiParameter ->
-                            val paramName = psiParameter.name
-                            val type = psiParameter.type.presentableText
-                            appendDecorate(contextComment, PARAM)
-                            append("$paramName $type")
+            globalSettings.javaMethodDocTemplate
+                    .ifBlank { DocDecorationConstants.DEFAULT_JAVA_METHOD_DOC_TEMPLATE }
+                    .split("\n")
+                    .forEach {
+                        val content = DocFormatUtils.formatPlaceholder(it)
+                        if (content.contains(PLACEHOLDER_PARAMS)) {
+                            owner.parameterList.parameters.forEach { psiParameter ->
+                                val paramName = psiParameter.name
+                                val type = psiParameter.type.presentableText
+                                appendDecorate(contextComment, PARAM)
+                                append("$paramName $type")
+                                append(LF)
+                            }
+                        } else if (content.contains(PLACEHOLDER_RETURN)) {
+                            if (owner.returnType != null && PsiType.VOID != owner.returnType) {
+                                //生成返回值，如果返回值是void则不生成
+                                val returnType = owner.returnType?.presentableText
+                                appendDecorate(contextComment, RETURN)
+                                append("$returnType ")
+                                append(LF)
+                            }
+                        } else {
+                            appendDecorate(contextComment, content.trimStart())
                             append(LF)
                         }
-                    } else if (content.contains(PLACEHOLDER_RETURN)) {
-                        if (owner.returnType != null && PsiType.VOID != owner.returnType) {
-                            //生成返回值，如果返回值是void则不生成
-                            val returnType = owner.returnType?.presentableText
-                            appendDecorate(contextComment, RETURN)
-                            append("$returnType ")
-                            append(LF)
-                        }
-                    } else {
-                        appendDecorate(contextComment, content.trimStart())
-                        append(LF)
                     }
-                }
         }
     }
 

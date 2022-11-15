@@ -15,9 +15,49 @@ object DocDecorationConstants {
     const val RETURN = "@return"
     const val LF = "\n"
 
-    const val DEFAULT_CLASS_DOC_TEMPLATE =
-        "<p>\nDate: {DATE}\nCompany: \nUpdater:\nUpdate Time:\nUpdate Comments:\n{PARAMS}\n\nAuthor: "
-    const val DEFAULT_METHOD_DOC_TEMPLATE = "<p>\nDate: {DATE} {TIME}\nAuthor: \n{PARAMS}\n{RETURN}"
+    /**
+     * kotlin 类注释模版
+     */
+    const val DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE = "<p>\n" +
+            "Date: {DATE}\n" +
+            "Company: \n" +
+            "Updater:\n" +
+            "Update Time:\n" +
+            "Update Comments:\n" +
+            "{PARAMS}\n" +
+            "\n" +
+            "Author: "
+
+    /**
+     * kotlin 方法注释模版
+     */
+    const val DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE = "<p>\n" +
+            "Date: {DATE} {TIME}\n" +
+            "Author: \n" +
+            "{PARAMS}\n" +
+            "{RETURN}"
+
+    /**
+     * kotlin 类注释模版
+     */
+    const val DEFAULT_JAVA_CLASS_DOC_TEMPLATE = "<p>\n" +
+            "Date: {DATE}\n" +
+            "Company: \n" +
+            "Updater:\n" +
+            "Update Time:\n" +
+            "Update Comments:\n" +
+            "{PARAMS}\n" +
+            "\n" +
+            "Author: "
+
+    /**
+     * kotlin 方法注释模版
+     */
+    const val DEFAULT_JAVA_METHOD_DOC_TEMPLATE = "<p>\n" +
+            "Date: {DATE} {TIME}\n" +
+            "Author: \n" +
+            "{PARAMS}\n" +
+            "{RETURN}"
 
     const val PLACEHOLDER_FORMAT_DATE = "{DATE}"
     const val PLACEHOLDER_FORMAT_TIME = "{TIME}"
