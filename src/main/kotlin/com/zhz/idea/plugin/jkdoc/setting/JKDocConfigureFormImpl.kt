@@ -161,12 +161,12 @@ class JKDocConfigureFormImpl : Configurable {
         globalSettings.javaMethodDocTemplate = javaMethodTextArea.text
     }
 
-    override fun reset() {
-        kotlinClassTextArea.text = DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE
-        kotlinMethodTextArea.text = DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE
-        javaClassTextArea.text = DEFAULT_JAVA_CLASS_DOC_TEMPLATE
-        javaMethodTextArea.text = DEFAULT_JAVA_METHOD_DOC_TEMPLATE
-    }
+//    override fun reset() {
+//        kotlinClassTextArea.text = DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE
+//        kotlinMethodTextArea.text = DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE
+//        javaClassTextArea.text = DEFAULT_JAVA_CLASS_DOC_TEMPLATE
+//        javaMethodTextArea.text = DEFAULT_JAVA_METHOD_DOC_TEMPLATE
+//    }
 
     override fun getDisplayName(): String = "JKDoc"
 
