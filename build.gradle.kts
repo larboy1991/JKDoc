@@ -16,7 +16,7 @@ plugins {
 }
 
 group = "com.larboy1991.idea.plugin"
-version = "0.0.1"
+version = "0.0.2"
 
 repositories {
     mavenCentral()
