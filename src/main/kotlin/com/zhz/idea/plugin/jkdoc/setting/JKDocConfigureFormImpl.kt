@@ -58,7 +58,7 @@ class JKDocConfigureFormImpl : Configurable {
     override fun createComponent(): JComponent {
         val result = panel {
             separator().rowComment("java 和 kotlin 注释插件，支持自定义模版，使用简单，只需要在类、方法上输入 \"/**\"即可。")
-            separator().rowComment("目前支持的格式化参数只有{DATE}、{TIME}、{PARAMS}、{RETURN}")
+            separator().rowComment("目前支持的格式化参数只有{DATE}、{TIME}、{PARAMS}、{RETURN}、{PARAMS_TYPE}")
             row("language: ") {
                 segmentedButton(buttons, languageProperty) { s -> s }
             }
