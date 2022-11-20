@@ -69,7 +69,7 @@ Author: YourName
 
 <br>
 
-- **Kotlin Class Template**
+- **Kotlin Method Template**
 ```text
 <p>
 Date: {DATE} {TIME}
