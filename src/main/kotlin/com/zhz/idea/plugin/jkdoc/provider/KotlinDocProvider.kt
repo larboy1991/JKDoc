@@ -52,6 +52,7 @@ class KotlinDocProvider : DocumentationProviderEx(), CodeDocumentationProvider {
         return when (owner) {
             is KtNamedFunction -> KotlinDocGenerateUtils.generateFunction(contextComment, owner)
             is KtClassOrObject -> KotlinDocGenerateUtils.generateClass(contextComment, owner)
+            is KtConstructor<*> -> KotlinDocGenerateUtils.generateConstructor(contextComment, owner)
             else -> ""
         }
     }
