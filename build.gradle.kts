@@ -12,11 +12,11 @@ buildscript {
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.7.20"
-    id("org.jetbrains.intellij") version "1.9.0"
+    id("org.jetbrains.intellij") version "1.13.1"
 }
 
 group = "com.larboy1991.idea.plugin"
-version = "0.0.4"
+version = "0.0.5"
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2021.3.3")
+    version.set("2022.2.4")
     type.set("IC") // Target IDE Platform
     plugins.set(listOf("java", "Kotlin"))
 }
@@ -43,8 +43,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("213")
-        untilBuild.set("223.*")
+        sinceBuild.set("222")
+        untilBuild.set("232.*")
     }
 
     signPlugin {

@@ -2,7 +2,6 @@
 
 package com.zhz.idea.plugin.jkdoc.setting
 
-import com.intellij.openapi.observable.properties.GraphPropertyImpl.Companion.graphProperty
 import com.intellij.openapi.observable.properties.PropertyGraph
 import com.intellij.openapi.options.Configurable
 import com.intellij.ui.dsl.builder.*
@@ -49,7 +48,7 @@ class JKDocConfigureFormImpl : Configurable {
 
     private val propertyGraph: PropertyGraph = PropertyGraph()
 
-    private val languageProperty = propertyGraph.graphProperty { "" }
+    private val languageProperty = propertyGraph.lazyProperty { "" }
 
     private val buttons = listOf("Java", "Kotlin")
 
@@ -60,7 +59,7 @@ class JKDocConfigureFormImpl : Configurable {
             separator().rowComment("java 和 kotlin 注释插件，支持自定义模版，使用简单，只需要在类、方法上输入 \"/**\"即可。")
             separator().rowComment("目前支持的格式化参数只有{DATE}、{TIME}、{PARAMS}、{RETURN}、{PARAMS_TYPE}")
             row("language: ") {
-                segmentedButton(buttons, languageProperty) { s -> s }
+                segmentedButton(buttons) { s -> s }.apply { bind(languageProperty) }
             }
             row {
                 rows[buttons[0]] = cell(createJavaPanel())
