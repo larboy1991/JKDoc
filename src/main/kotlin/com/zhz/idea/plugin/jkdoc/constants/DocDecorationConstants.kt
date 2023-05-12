@@ -7,7 +7,6 @@ package com.zhz.idea.plugin.jkdoc.constants
  * Updater:
  * Update Time:
  * Update Comments:
- *
  * Author: zhuanghongzhan
  */
 object DocDecorationConstants {
@@ -16,44 +15,30 @@ object DocDecorationConstants {
     /**
      * kotlin 类注释模版
      */
-    const val DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE = "<p>\n" +
-            "Date: {DATE}\n" +
-            "Company: \n" +
-            "Updater:\n" +
-            "Update Time:\n" +
-            "Update Comments:\n" +
-            "@param {PARAMS} {PARAMS_TYPE}\n" +
-            "\n" +
-            "Author: "
+    const val DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE = "@author \n" +
+            "@date {DATE} \n" +
+            "@param {PARAMS}"
 
     /**
      * kotlin 方法注释模版
      */
-    const val DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE = "<p>\n" +
-            "Date: {DATE} {TIME}\n" +
-            "Author: \n" +
-            "@param {PARAMS} {PARAMS_TYPE}\n" +
+    const val DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE = "@author \n" +
+            "@date {DATE} \n" +
+            "@param {PARAMS}\n" +
             "@return {RETURN}"
 
     /**
      * java 类注释模版
      */
-    const val DEFAULT_JAVA_CLASS_DOC_TEMPLATE = "<p>\n" +
-            "Date: {DATE}\n" +
-            "Company: \n" +
-            "Updater:\n" +
-            "Update Time:\n" +
-            "Update Comments:\n" +
-            "\n" +
-            "Author: "
+    const val DEFAULT_JAVA_CLASS_DOC_TEMPLATE = "@author \n" +
+            "@date {DATE} "
 
     /**
      * java 方法注释模版
      */
-    const val DEFAULT_JAVA_METHOD_DOC_TEMPLATE = "<p>\n" +
-            "Date: {DATE} {TIME}\n" +
-            "Author: \n" +
-            "@param {PARAMS} {PARAMS_TYPE}\n" +
+    const val DEFAULT_JAVA_METHOD_DOC_TEMPLATE = "@author \n" +
+            "@date {DATE} \n" +
+            "@param {PARAMS}\n" +
             "@return {RETURN}"
 
     const val PLACEHOLDER_FORMAT_DATE = "{DATE}"
