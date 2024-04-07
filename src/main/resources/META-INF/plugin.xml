@@ -39,7 +39,7 @@
                                     order="first"/>
 
         <applicationConfigurable groupId="tools"
-                                 displayName="JKDoc 设置"
+                                 displayName="JKDoc Setting"
                                  id="com.zhz.idea.plugin.jkdoc.applicationConfigurable"
                                  instance="com.zhz.idea.plugin.jkdoc.setting.JKDocConfigureFormImpl"/>
 

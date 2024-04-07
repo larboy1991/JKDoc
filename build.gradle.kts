@@ -1,21 +1,25 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.13.3"
+    id("org.jetbrains.kotlin.jvm") version "1.9.23"
+    id("org.jetbrains.intellij") version "1.17.3"
 }
 
 group = "com.larboy1991.idea.plugin"
-version = "0.0.8"
+version = "0.0.10"
 
 repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2022.2.5")
-    type.set("IC") // Target IDE Platform
+    version.set("2023.2.6")
+//    type.set("IC") // Target IDE Platform
     plugins.set(listOf("java", "Kotlin"))
 }
 
@@ -23,17 +27,17 @@ intellij {
 
 tasks {
     // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "17"
-        targetCompatibility = "17"
+    compileKotlin {
+        kotlinOptions.jvmTarget = "17"
     }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+
+    compileTestKotlin {
         kotlinOptions.jvmTarget = "17"
     }
 
     patchPluginXml {
-        sinceBuild.set("222")
-        untilBuild.set("233.*")
+        sinceBuild.set("232")
+        untilBuild.set("261.*")
     }
 
     signPlugin {

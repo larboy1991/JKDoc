@@ -1,11 +1,8 @@
-@file:Suppress("UnstableApiUsage", "DialogTitleCapitalization")
-
 package com.zhz.idea.plugin.jkdoc.setting
 
 import com.intellij.openapi.observable.properties.PropertyGraph
 import com.intellij.openapi.options.Configurable
 import com.intellij.ui.dsl.builder.*
-import com.intellij.ui.dsl.gridLayout.HorizontalAlign
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.DEFAULT_JAVA_CLASS_DOC_TEMPLATE
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.DEFAULT_JAVA_METHOD_DOC_TEMPLATE
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE
@@ -23,6 +20,7 @@ import javax.swing.*
  *
  * Author: zhuanghongzhan
  */
+@Suppress("UnstableApiUsage", "DialogTitleCapitalization")
 class JKDocConfigureFormImpl : Configurable {
 
     /**
@@ -89,22 +87,22 @@ class JKDocConfigureFormImpl : Configurable {
             }
             row {
                 javaClassTextArea = textArea()
-                        .text(globalSettings.javaClassDocTemplate.ifBlank { DEFAULT_JAVA_CLASS_DOC_TEMPLATE })
-                        .horizontalAlign(HorizontalAlign.FILL)
-                        .columns(55)
-                        .rows(10)
-                        .component
+                    .text(globalSettings.javaClassDocTemplate.ifBlank { DEFAULT_JAVA_CLASS_DOC_TEMPLATE })
+                    .align(AlignX.FILL)
+                    .columns(55)
+                    .rows(10)
+                    .component
             }
             row {
                 label("Java方法注释模版：")
             }
             row {
                 javaMethodTextArea = textArea()
-                        .text(globalSettings.javaMethodDocTemplate.ifBlank { DEFAULT_JAVA_METHOD_DOC_TEMPLATE })
-                        .horizontalAlign(HorizontalAlign.FILL)
-                        .rows(10)
-                        .columns(55)
-                        .component
+                    .text(globalSettings.javaMethodDocTemplate.ifBlank { DEFAULT_JAVA_METHOD_DOC_TEMPLATE })
+                    .align(AlignX.FILL)
+                    .rows(10)
+                    .columns(55)
+                    .component
             }
         }
     }
@@ -124,22 +122,22 @@ class JKDocConfigureFormImpl : Configurable {
             }
             row {
                 kotlinClassTextArea = textArea()
-                        .text(globalSettings.kotlinClassDocTemplate.ifBlank { DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE })
-                        .horizontalAlign(HorizontalAlign.FILL)
-                        .columns(55)
-                        .rows(10)
-                        .component
+                    .text(globalSettings.kotlinClassDocTemplate.ifBlank { DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE })
+                    .align(AlignX.FILL)
+                    .columns(55)
+                    .rows(10)
+                    .component
             }
             row {
                 label("Kotlin方法注释模版：")
             }
             row {
                 kotlinMethodTextArea = textArea()
-                        .text(globalSettings.kotlinMethodDocTemplate.ifBlank { DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE })
-                        .horizontalAlign(HorizontalAlign.FILL)
-                        .rows(10)
-                        .columns(55)
-                        .component
+                    .text(globalSettings.kotlinMethodDocTemplate.ifBlank { DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE })
+                    .align(AlignX.FILL)
+                    .rows(10)
+                    .columns(55)
+                    .component
             }
         }
 
@@ -160,12 +158,6 @@ class JKDocConfigureFormImpl : Configurable {
         globalSettings.javaMethodDocTemplate = javaMethodTextArea.text
     }
 
-//    override fun reset() {
-//        kotlinClassTextArea.text = DEFAULT_KOTLIN_CLASS_DOC_TEMPLATE
-//        kotlinMethodTextArea.text = DEFAULT_KOTLIN_METHOD_DOC_TEMPLATE
-//        javaClassTextArea.text = DEFAULT_JAVA_CLASS_DOC_TEMPLATE
-//        javaMethodTextArea.text = DEFAULT_JAVA_METHOD_DOC_TEMPLATE
-//    }
 
     override fun getDisplayName(): String = "JKDoc"
 

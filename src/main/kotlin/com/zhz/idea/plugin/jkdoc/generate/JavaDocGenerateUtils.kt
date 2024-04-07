@@ -2,7 +2,7 @@ package com.zhz.idea.plugin.jkdoc.generate
 
 import com.intellij.psi.PsiComment
 import com.intellij.psi.PsiMethod
-import com.intellij.psi.PsiType
+import com.intellij.psi.PsiTypes
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.LF
 import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.PLACEHOLDER_PARAMS
@@ -75,7 +75,7 @@ object JavaDocGenerateUtils {
                             append(LF)
                         }
                     } else if (content.contains(PLACEHOLDER_RETURN)) {
-                        if (owner.returnType != null && PsiType.VOID != owner.returnType) {
+                        if (owner.returnType != null && PsiTypes.voidType() != owner.returnType) {
                             //生成返回值，如果返回值是void则不生成
                             val returnType = owner.returnType?.presentableText
                             appendDecorate(contextComment, "")
