@@ -1,7 +1,9 @@
 # JKDoc
 
+<!-- Plugin description -->
 Plugin for **IntelliJ IDEA** / **Android Studio** , can generate document comments for Java/Kotlin file.<br>
 一款 **IntelliJ IDEA** / **Android Studio** 插件，用于生成java、kotlin文件类/方法的注释,模版支持自定义。
+<!-- Plugin description end -->
 
 # Usage 
 

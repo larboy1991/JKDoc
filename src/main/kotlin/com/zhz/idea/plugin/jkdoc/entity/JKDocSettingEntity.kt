@@ -12,9 +12,8 @@ package com.zhz.idea.plugin.jkdoc.entity
  * Author: zhuanghongzhan
  */
 data class JKDocSettingEntity(
-        var kotlinClassDocTemplate: String = "", //类注释模版
-        var kotlinMethodDocTemplate: String = "", //方法注释模版
-        var javaClassDocTemplate: String = "", // Java 类注释模版
-        var javaMethodDocTemplate: String = "", // Java 方法注释模版
-
+    var kotlinClassDocTemplate: String = "", //类注释模版
+    var kotlinMethodDocTemplate: String = "", //方法注释模版
+    var javaClassDocTemplate: String = "", // Java 类注释模版
+    var javaMethodDocTemplate: String = "", // Java 方法注释模版
 )

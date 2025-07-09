@@ -1,0 +1,14 @@
+[versions]
+# plugins
+changelog = "2.2.1"
+intelliJPlatform = "2.6.0"
+kotlin = "2.1.0"
+
+[libraries]
+
+[plugins]
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+# 查看最新的版本 https://plugins.gradle.org/plugin/org.jetbrains.intellij
+intelliJPlatform = { id = "org.jetbrains.intellij.platform", version.ref = "intelliJPlatform" }
+# 查看最新的版本 https://kotlinlang.org/docs/releases.html
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

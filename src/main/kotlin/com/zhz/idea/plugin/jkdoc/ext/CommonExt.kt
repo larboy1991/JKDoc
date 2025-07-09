@@ -5,8 +5,6 @@ import com.intellij.lang.CodeDocumentationAwareCommenter
 import com.intellij.lang.LanguageCommenters
 import com.intellij.psi.PsiComment
 
-class CommonExt
-
 /**
  * 添加行注释
  * <p>
