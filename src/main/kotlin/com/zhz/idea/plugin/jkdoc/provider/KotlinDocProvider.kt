@@ -1,13 +1,10 @@
 package com.zhz.idea.plugin.jkdoc.provider
 
-import com.intellij.ide.util.PackageUtil
 import com.intellij.lang.documentation.CodeDocumentationProvider
 import com.intellij.lang.documentation.DocumentationProviderEx
-import com.intellij.lang.java.JavaDocumentationProvider.getPackageInfoComment
 import com.intellij.openapi.util.Pair
 import com.intellij.psi.PsiComment
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiField
 import com.intellij.psi.util.PsiTreeUtil
 import com.zhz.idea.plugin.jkdoc.generate.KotlinDocGenerateUtils
 import org.jetbrains.kotlin.kdoc.psi.impl.KDocImpl

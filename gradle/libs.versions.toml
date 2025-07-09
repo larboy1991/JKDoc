@@ -6,8 +6,6 @@ kotlin = "2.1.0"
 
 [libraries]
 
-analysis = { group = "org.jetbrains.kotlin", name = "kotlin-analysis-api-ide", version.ref = "kotlin" }
-
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
 # 查看最新的版本 https://plugins.gradle.org/plugin/org.jetbrains.intellij
