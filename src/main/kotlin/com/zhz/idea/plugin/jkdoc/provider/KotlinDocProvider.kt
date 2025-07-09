@@ -28,27 +28,28 @@ class KotlinDocProvider : DocumentationProviderEx(), CodeDocumentationProvider {
 
     override fun findExistingDocComment(contextElement: PsiComment?): PsiComment? {
         if (contextElement is KDocImpl) {
-            return contextElement.owner?.docComment
+            return contextElement
         }
-        return contextElement
+        return PsiTreeUtil.getChildOfType(contextElement, KDocImpl::class.java)
     }
 
     override fun parseContext(startPoint: PsiElement): Pair<PsiElement, PsiComment> {
-        var current = startPoint
-        while (true) {
+        var current: PsiElement? = startPoint
+        while (current != null) {
             if (current is KDocImpl) {
-                return Pair.create(if (current is PsiField) current.modifierList else current, current)
-            } else if (PackageUtil.isPackageInfoFile(current)) {
-                return Pair.create(current, getPackageInfoComment(current))
+                val owner = current.owner
+                if (owner != null) {
+                    return Pair.create(owner, current)
+                }
             }
             current = current.parent
         }
+        throw IllegalArgumentException("Cannot find context for documentation comment.")
     }
 
     override fun generateDocumentationContentStub(contextComment: PsiComment?): String {
         contextComment ?: return ""
-        val owner = PsiTreeUtil.getParentOfType<KtDeclaration>(contextComment)
-            ?: contextComment.parent.takeIf { it is KtFunction || it is KtClassOrObject || it is KtSecondaryConstructor }
+        val owner = PsiTreeUtil.getParentOfType(contextComment, KtDeclaration::class.java, false)
         return when (owner) {
             is KtNamedFunction -> KotlinDocGenerateUtils.generateFunction(contextComment, owner)
             is KtClassOrObject -> KotlinDocGenerateUtils.generateClass(contextComment, owner)

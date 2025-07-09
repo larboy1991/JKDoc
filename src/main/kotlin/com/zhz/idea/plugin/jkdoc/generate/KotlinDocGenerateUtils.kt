@@ -8,7 +8,6 @@ import com.zhz.idea.plugin.jkdoc.constants.DocDecorationConstants.PLACEHOLDER_PA
 import com.zhz.idea.plugin.jkdoc.ext.appendDecorate
 import com.zhz.idea.plugin.jkdoc.utils.DocFormatUtils
 import com.zhz.idea.plugin.jkdoc.utils.globalSettings
-import org.jetbrains.kotlin.idea.intentions.SpecifyTypeExplicitlyIntention
 import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtConstructor
 import org.jetbrains.kotlin.psi.KtNamedFunction
@@ -110,19 +109,18 @@ object KotlinDocGenerateUtils {
                             )
                             append(LF)
                         } else {
-                            SpecifyTypeExplicitlyIntention.getTypeForDeclaration(owner).unwrap().toString()
-                                .let { returnType ->
-                                    if (returnType != "Unit") {
-                                        appendDecorate(contextComment, "")
-                                        append(
-                                            it.replace(
-                                                DocDecorationConstants.PLACEHOLDER_RETURN,
-                                                (owner.typeReference?.typeElement?.text) ?: ""
-                                            )
+                            owner.typeReference?.text?.let { returnType ->
+                                if (returnType != "Unit") {
+                                    appendDecorate(contextComment, "")
+                                    append(
+                                        it.replace(
+                                            DocDecorationConstants.PLACEHOLDER_RETURN,
+                                            (owner.typeReference?.typeElement?.text) ?: ""
                                         )
-                                        append(LF)
-                                    }
+                                    )
+                                    append(LF)
                                 }
+                            }
                         }
                     } else {
                         appendDecorate(contextComment, content.trimStart())
@@ -149,11 +147,12 @@ object KotlinDocGenerateUtils {
         params: List<KtParameter>
     ) {
         params.forEach { ktParameter ->
-            val param = ktParameter.nameIdentifier?.text ?: ""
-            val type = SpecifyTypeExplicitlyIntention.getTypeForDeclaration(ktParameter).unwrap().toString()
-            if (param.isNotEmpty() && type.isNotEmpty()) {
+            val paramName = ktParameter.nameIdentifier?.text ?: ""
+            val paramType = ktParameter.typeReference?.text ?: "Any"
+
+            if (paramName.isNotEmpty() && paramType.isNotEmpty()) {
                 sb.appendDecorate(contextComment, "")
-                sb.append(content.replace(PLACEHOLDER_PARAMS, param).replace(PLACEHOLDER_PARAMS_TYPE, type))
+                sb.append(content.replace(PLACEHOLDER_PARAMS, paramName).replace(PLACEHOLDER_PARAMS_TYPE, paramType))
                 sb.append(LF)
             }
         }
